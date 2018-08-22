@@ -1,0 +1,28 @@
+server:
+  port: 9090
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
+
+zuul:
+  routes:
+    user:
+      path: /users
+    my_timelines:
+      path: /users/*/timelines
+      serviceId: timeline
+      stripPrefix: false
+    my_friend_timelines:
+      path: /users/*/friends/*/timelines
+      serviceId: timeline
+      stripPrefix: false
+    friend:
+      path: /users/*/friends
+      serviceId: user
+      stripPrefix: false
+
+spring:
+  application:
+    name: zuul-server

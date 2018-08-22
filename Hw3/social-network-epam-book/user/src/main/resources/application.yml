@@ -1,0 +1,21 @@
+server:
+  port: 9096
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5
+
+spring:
+  application:
+    name: user
+  jpa:
+    hibernate:
+      ddl-auto: validate

@@ -1,0 +1,1 @@
+start cmd /k gradle build
